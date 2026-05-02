@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - Let's Meet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <nav>
+        <h2>📍 Snap Map</h2>
+        <div class="nav-buttons">
+            <button onclick="goBack()">← Back</button>
+        </div>
+    </nav>
+
+    <!-- MAP CONTAINER -->
+    <div id="map" class="snap-map"></div>
+
+    <!-- BOTTOM SHEET -->
+    <div class="location-sheet">
+        <div class="sheet-handle"></div>
+
+        <!-- MY LOCATION STATUS -->
+        <div class="loc-my-status">
+            <div class="loc-status-text">
+                <span class="loc-label">My Location</span>
+                <span id="myLocText" class="loc-coords">Tap to share</span>
+            </div>
+            <div class="loc-toggle-group">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="shareToggle" onchange="toggleLocationSharing(this)">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Share</span>
+            </div>
+        </div>
+
+        <!-- GHOST MODE -->
+        <div class="ghost-mode-bar">
+            <div class="ghost-icon">👻</div>
+            <div class="ghost-text">
+                <strong>Ghost Mode</strong>
+                <span>Hide from everyone</span>
+            </div>
+            <label class="toggle-switch">
+                <input type="checkbox" id="ghostToggle" onchange="toggleGhostMode(this)">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <!-- NEARBY FRIENDS -->
+        <div class="nearby-header">
+            <h3>Nearby Friends</h3>
+            <span id="nearbyCount" class="nearby-count">0 online</span>
+        </div>
+
+        <div id="friendsList" class="friends-location-list">
+            <p class="no-friends-msg">No friends sharing location yet.<br>Invite your matches to share!</p>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="loc-actions">
+            <button class="loc-action-btn" onclick="centerOnMe()">🎯 My Location</button>
+            <button class="loc-action-btn" onclick="shareLocationLink()">🔗 Share Link</button>
+            <button class="loc-action-btn danger" onclick="stopSharing()">✕ Stop Sharing</button>
+        </div>
+    </div>
+
+    <!-- LOCATION PERMISSION PROMPT -->
+    <div id="locPermPrompt" class="loc-perm-prompt">
+        <div class="perm-card">
+            <div class="perm-icon">📍</div>
+            <h3>Enable Location</h3>
+            <p>Share your location with matches to see each other on the map — just like Snapchat!</p>
+            <button class="main-btn" onclick="requestLocation()">Enable Location</button>
+            <button class="skip-btn" onclick="dismissPermPrompt()">Skip for now</button>
+        </div>
+    </div>
+
+    <!-- FRIEND POPUP (shown on marker click) -->
+    <div id="friendPopup" class="friend-popup hidden">
+        <img id="popupAvatar" src="" alt="">
+        <div class="popup-info">
+            <strong id="popupName"></strong>
+            <span id="popupDept"></span>
+            <span id="popupTime" class="popup-time"></span>
+        </div>
+        <div class="popup-actions">
+            <button onclick="chatFromMap()">💬 Chat</button>
+            <button onclick="closePopup()">✕</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

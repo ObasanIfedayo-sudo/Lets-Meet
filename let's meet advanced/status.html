@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status - Let's Meet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h2>📸 Status</h2>
+        <div class="nav-buttons">
+            <button onclick="goBack()">← Back</button>
+        </div>
+    </nav>
+
+    <!-- MY STATUS -->
+    <section class="status-section">
+        <div class="my-status-card" onclick="openStatusComposer()">
+            <div class="status-add-ring">
+                <img id="myStatusAvatar" src="" alt="Me" class="status-avatar">
+                <div class="status-plus-badge">＋</div>
+            </div>
+            <div class="my-status-text">
+                <strong>My Status</strong>
+                <span id="myStatusHint">Tap to add a status</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENT UPDATES -->
+    <section class="status-section">
+        <h3 class="status-section-title">Recent Updates</h3>
+        <div id="recentStatusList" class="status-list"></div>
+    </section>
+
+    <!-- VIEWED UPDATES -->
+    <section class="status-section" id="viewedSection" style="display:none">
+        <h3 class="status-section-title viewed-title">Viewed</h3>
+        <div id="viewedStatusList" class="status-list"></div>
+    </section>
+
+    <!-- STATUS COMPOSER (overlay) -->
+    <div id="statusComposer" class="status-composer hidden">
+        <div class="composer-header">
+            <button class="composer-close" onclick="closeStatusComposer()">✕</button>
+            <h3>Add Status</h3>
+            <button id="postStatusBtn" class="composer-post-btn" onclick="postStatus()">Post</button>
+        </div>
+
+        <div class="composer-preview" id="composerPreview">
+            <div id="previewBg" class="status-bg-preview">
+                <p id="previewText" class="preview-text-overlay">What's on your mind?</p>
+            </div>
+        </div>
+
+        <div class="composer-tools">
+            <!-- Background colours -->
+            <div class="bg-palette">
+                <div class="bg-swatch" style="background:#ff4d6d" onclick="setStatusBg('#ff4d6d')"></div>
+                <div class="bg-swatch" style="background:#6c63ff" onclick="setStatusBg('#6c63ff')"></div>
+                <div class="bg-swatch" style="background:#0984e3" onclick="setStatusBg('#0984e3')"></div>
+                <div class="bg-swatch" style="background:#00b894" onclick="setStatusBg('#00b894')"></div>
+                <div class="bg-swatch" style="background:#fdcb6e" onclick="setStatusBg('#fdcb6e')"></div>
+                <div class="bg-swatch" style="background:#e17055" onclick="setStatusBg('#e17055')"></div>
+                <div class="bg-swatch" style="background:#2d3436" onclick="setStatusBg('#2d3436')"></div>
+                <div class="bg-swatch gradient" style="background:linear-gradient(135deg,#f06,#4a90e2)" onclick="setStatusBg('linear-gradient(135deg,#f06,#4a90e2)')"></div>
+            </div>
+
+            <textarea id="statusText" class="status-textarea" placeholder="What's on your mind?" maxlength="250" oninput="updatePreviewText(this.value)"></textarea>
+
+            <div class="composer-media-row">
+                <label class="composer-media-btn" for="statusImageInput">🖼 Photo</label>
+                <input id="statusImageInput" type="file" accept="image/*" onchange="setStatusImage(this)">
+
+                <select id="statusMood" class="status-mood-select">
+                    <option value="">😊 Mood (optional)</option>
+                    <option value="😍 Feeling loved">😍 Feeling loved</option>
+                    <option value="😎 Feeling cool">😎 Feeling cool</option>
+                    <option value="😴 Tired">😴 Tired</option>
+                    <option value="📚 Studying">📚 Studying</option>
+                    <option value="🎉 Celebrating">🎉 Celebrating</option>
+                    <option value="😭 Emotional">😭 Emotional</option>
+                    <option value="💪 Motivated">💪 Motivated</option>
+                    <option value="🍔 Hungry">🍔 Hungry</option>
+                </select>
+
+                <select id="statusAudience" class="status-mood-select">
+                    <option value="matches">Matches Only</option>
+                    <option value="everyone">Everyone</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATUS VIEWER (full screen) -->
+    <div id="statusViewer" class="status-viewer hidden">
+        <div class="viewer-progress-bar">
+            <div id="viewerProgress" class="viewer-progress-fill"></div>
+        </div>
+        <div class="viewer-header">
+            <div class="viewer-user-info">
+                <img id="viewerAvatar" src="" alt="">
+                <div>
+                    <strong id="viewerName"></strong>
+                    <span id="viewerTime" class="viewer-time"></span>
+                </div>
+            </div>
+            <button class="viewer-close" onclick="closeStatusViewer()">✕</button>
+        </div>
+
+        <div id="viewerContent" class="viewer-content"></div>
+
+        <div class="viewer-footer">
+            <div class="viewer-reply-bar">
+                <input id="statusReplyInput" type="text" placeholder="Reply to status..." onkeydown="handleStatusReply(event)">
+                <button onclick="sendStatusReply()">➤</button>
+            </div>
+            <div class="viewer-reactions">
+                <span onclick="reactToStatus('❤️')">❤️</span>
+                <span onclick="reactToStatus('😂')">😂</span>
+                <span onclick="reactToStatus('😍')">😍</span>
+                <span onclick="reactToStatus('🔥')">🔥</span>
+                <span onclick="reactToStatus('😮')">😮</span>
+            </div>
+        </div>
+
+        <!-- Viewer nav -->
+        <button class="status-nav-btn prev" onclick="prevStatus()">‹</button>
+        <button class="status-nav-btn next" onclick="nextStatus()">›</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

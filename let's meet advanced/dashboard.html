@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Let's Meet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h2>Let's Meet</h2>
+        <div class="nav-buttons">
+            <button onclick="goToStatus()">📸 Status</button>
+            <button onclick="goToLocation()">📍 Location</button>
+            <button onclick="goToChat()">💬 Chats</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- USER PROFILE -->
+    <section class="profile">
+        <h2>Your Profile</h2>
+        <div id="userInfo" class="user-info-card"></div>
+        <button class="edit-profile-btn" onclick="toggleEditProfile()">✏️ Edit Profile</button>
+
+        <div id="editProfilePanel" class="edit-profile-panel hidden">
+            <h3>Edit Profile</h3>
+            <input id="editBio" type="text" placeholder="Update your bio...">
+            <select id="editLevel" class="styled-select">
+                <option value="">Update Level</option>
+                <option value="100L">100 Level</option>
+                <option value="200L">200 Level</option>
+                <option value="300L">300 Level</option>
+                <option value="400L">400 Level</option>
+                <option value="500L">500 Level</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="PhD">PhD</option>
+            </select>
+            <label for="editPhoto" class="file-label">Change Photo</label>
+            <input id="editPhoto" type="file" accept="image/*">
+            <button class="main-btn" style="margin-top:12px" onclick="saveEditProfile()">Save Changes</button>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-bar-section">
+        <div class="filter-bar">
+            <select id="filterDept" class="filter-select" onchange="loadDashboard()">
+                <option value="">All Departments</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Law">Law</option>
+                <option value="Business Administration">Business Administration</option>
+                <option value="Economics">Economics</option>
+                <option value="Mass Communication">Mass Communication</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Mathematics">Mathematics</option>
+            </select>
+            <select id="filterLevel" class="filter-select" onchange="loadDashboard()">
+                <option value="">All Levels</option>
+                <option value="100L">100 Level</option>
+                <option value="200L">200 Level</option>
+                <option value="300L">300 Level</option>
+                <option value="400L">400 Level</option>
+                <option value="500L">500 Level</option>
+                <option value="Postgraduate">Postgraduate</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- DISCOVER -->
+    <section class="users">
+        <h2>Discover</h2>
+        <div id="cardContainer" class="card-container"></div>
+    </section>
+
+    <!-- MATCHES LIST -->
+    <section class="matches-section">
+        <h2>Your Matches</h2>
+        <div id="matchesList" class="matches-list"></div>
+    </section>
+
+    <!-- MATCH NOTIFICATION -->
+    <div id="matchNotification" class="match-notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

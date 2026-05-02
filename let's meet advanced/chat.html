@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Let's Meet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="chat-nav">
+        <div class="chat-nav-left">
+            <button class="back-btn" onclick="goBack()">&#8592;</button>
+            <div class="chat-peer-info">
+                <img id="chatPeerAvatar" src="" alt="" class="chat-peer-avatar">
+                <div>
+                    <span id="chatPeerName" class="chat-peer-name"></span>
+                    <span id="chatPeerStatus" class="chat-peer-status">● Online</span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="goToLocation()">📍</button>
+        </div>
+    </nav>
+
+    <!-- Date separator will be injected dynamically -->
+    <section class="chat-box" id="chatBox">
+        <div class="chat-date-separator">Today</div>
+    </section>
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator hidden" id="typingIndicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    </div>
+
+    <div class="chat-input">
+        <button class="emoji-btn" onclick="toggleEmojiPicker()" title="Emoji">😊</button>
+        <input id="messageInput" type="text" placeholder="Type a message..." onkeydown="handleEnter(event)" oninput="handleTyping()">
+        <label for="imageMsg" class="img-attach-btn" title="Send image">📎</label>
+        <input id="imageMsg" type="file" accept="image/*" onchange="sendImageMessage(this)">
+        <button class="send-btn" onclick="sendMessage()">➤</button>
+    </div>
+
+    <!-- Emoji picker panel -->
+    <div id="emojiPicker" class="emoji-picker hidden">
+        <span onclick="insertEmoji('❤️')">❤️</span>
+        <span onclick="insertEmoji('😂')">😂</span>
+        <span onclick="insertEmoji('😍')">😍</span>
+        <span onclick="insertEmoji('🔥')">🔥</span>
+        <span onclick="insertEmoji('😭')">😭</span>
+        <span onclick="insertEmoji('🥺')">🥺</span>
+        <span onclick="insertEmoji('😊')">😊</span>
+        <span onclick="insertEmoji('🙈')">🙈</span>
+        <span onclick="insertEmoji('💀')">💀</span>
+        <span onclick="insertEmoji('👀')">👀</span>
+        <span onclick="insertEmoji('✨')">✨</span>
+        <span onclick="insertEmoji('💯')">💯</span>
+        <span onclick="insertEmoji('🎉')">🎉</span>
+        <span onclick="insertEmoji('💬')">💬</span>
+        <span onclick="insertEmoji('😎')">😎</span>
+        <span onclick="insertEmoji('🤩')">🤩</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
