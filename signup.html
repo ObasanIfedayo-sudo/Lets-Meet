@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Let's Meet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h2>Let's Meet</h2>
+        <div class="nav-buttons">
+            <button onclick="goToLogin()">Login</button>
+        </div>
+    </nav>
+
+    <section class="hero signup-hero">
+        <h1>Create Account</h1>
+        <div class="signup-form">
+            <div class="form-group">
+                <input id="name" type="text" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+                <input id="email" type="email" placeholder="School Email">
+            </div>
+            <div class="form-group">
+                <input id="phone" type="tel" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <input id="age" type="number" placeholder="Age" min="16" max="35">
+            </div>
+            <div class="form-group">
+                <input id="password" type="password" placeholder="Password (min 6 chars)">
+            </div>
+
+            <div class="form-group select-group">
+                <select id="level" class="styled-select">
+                    <option value="">Select Level</option>
+                    <option value="100L">100 Level</option>
+                    <option value="200L">200 Level</option>
+                    <option value="300L">300 Level</option>
+                    <option value="400L">400 Level</option>
+                    <option value="500L">500 Level</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="PhD">PhD</option>
+                </select>
+            </div>
+
+            <div class="form-group select-group">
+                <select id="department" class="styled-select">
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Law">Law</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Mass Communication">Mass Communication</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Political Science">Political Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Education">Education</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Sociology">Sociology</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group select-group">
+                <select id="gender" class="styled-select">
+                    <option value="">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="form-group select-group">
+                <select id="interestedIn" class="styled-select">
+                    <option value="">Interested In</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Everyone">Everyone</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input id="university" type="text" placeholder="University / School Name">
+            </div>
+
+            <div class="form-group">
+                <input id="bio" type="text" placeholder="Short Bio (e.g. 'CS nerd who loves music 🎵')">
+            </div>
+
+            <div class="hobbies-section">
+                <p class="hobbies-label">Select Your Hobbies</p>
+                <div class="hobbies-grid">
+                    <label class="hobby-chip"><input type="checkbox" value="Music"> 🎵 Music</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Football"> ⚽ Football</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Basketball"> 🏀 Basketball</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Gaming"> 🎮 Gaming</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Reading"> 📚 Reading</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Movies"> 🎬 Movies</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Cooking"> 🍳 Cooking</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Travel"> ✈️ Travel</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Dance"> 💃 Dance</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Art"> 🎨 Art</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Photography"> 📷 Photography</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Fitness"> 💪 Fitness</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Fashion"> 👗 Fashion</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Tech"> 💻 Tech</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Debate"> 🗣 Debate</label>
+                    <label class="hobby-chip"><input type="checkbox" value="Volunteering"> 🤝 Volunteering</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="photo" class="file-label">Upload Profile Photo</label>
+                <input id="photo" type="file" accept="image/*">
+            </div>
+
+            <button class="main-btn" onclick="signup()">Create Account 🚀</button>
+
+            <p id="message" class="message"></p>
+
+            <p class="switch-link">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
